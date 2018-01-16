@@ -9,6 +9,7 @@ html {
 }
 
 h1 {
+  margin: auto;
   padding: .77rem 0;
   background-color: #010c3f;
   text-align: center;
