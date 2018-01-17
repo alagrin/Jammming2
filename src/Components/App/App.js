@@ -29,14 +29,20 @@ class App extends React.Component {
         album: "Album" }
       ]
     };
-    //this.addTrack = this.addTrack.bind(this);
-  }
 
-  // addTrack(track) {
-  //   if (track.id === this.state.playlistTracks){
-    
-  //   }
-  // }
+    this.addTrack = this.addTrack.bind(this);
+  };
+//Revisit the .find method for clarification
+
+  addTrack(track) {
+  let tracks = this.state.playlistTracks;
+  if(!tracks.find(playlistTrack => playlistTrack.id === track.id)) {
+    tracks.push(track);
+    this.setState({
+      playlistTracks: tracks
+    });
+  }
+};
 
   render() {
     return (
