@@ -53,7 +53,7 @@ class App extends React.Component {
   };
 
   removeTrack(track) {
-  	let tracks = this.state.playlistTracks;
+  	let tracks = [...this.state.playlistTracks];
   	let updatedTracks = tracks.filter( playlistTrack => playlistTrack.id !== track.id);
   	this.setState({
   		playlistTracks: updatedTracks
@@ -68,7 +68,7 @@ class App extends React.Component {
 		    <SearchBar />
 		    <div className="App-playlist">
 			    <SearchResults searchResults={this.state.searchResults} addTrack={this.addTrack} isRemoval={false}/>
-			    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} removeTrack={this.removeTrack} isRemoval={true}/>
+			    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} isRemoval={true}/>
 		    </div>
 	  	</div>
 	</div>

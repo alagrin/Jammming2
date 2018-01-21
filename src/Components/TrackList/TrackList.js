@@ -7,7 +7,7 @@ class TrackList extends React.PureComponent {
 		return (
 			<div className="TrackList">
 			{
-				this.props.tracks.map( (track, index) => <Track key={`track-${index}`} track={track} addTrack={this.props.addTrack} isRemoval={this.props.isRemoval} />)
+				this.props.tracks.map( (track, index) => <Track key={`track-${index}`} track={track} addTrack={this.props.addTrack} isRemoval={this.props.isRemoval} onRemove={this.props.onRemove}/>)
 			}
 			</div>
 		);
