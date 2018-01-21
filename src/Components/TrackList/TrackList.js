@@ -2,12 +2,12 @@ import React from 'react';
 import './TrackList.css';
 import Track from '../Track/Track'
 
-class TrackList extends React.Component {
+class TrackList extends React.PureComponent {
 	render() {
 		return (
 			<div className="TrackList">
 			{
-				this.props.tracks.map( track => <Track key={track.id} track={track} onAdd={this.props.onAdd}/>)
+				this.props.tracks.map( (track, index) => <Track key={`track-${index}`} track={track} addTrack={this.props.addTrack}/>)
 			}
 			</div>
 		);
