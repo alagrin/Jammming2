@@ -19,7 +19,6 @@ class App extends React.Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
-
   };
   
 
@@ -40,14 +39,14 @@ class App extends React.Component {
   		playlistTracks: updatedTracks
   	});
   };
-  //Takes the entered Play
+
   updatePlaylistName(event) {
   	this.setState({
   		playlistName: event.target.value
   	});
   };
 
-savePlaylist() {
+  savePlaylist() {
         const trackURIs = this.state.playlistTracks.map(track => track.uri);
         Spotify.savePlaylist(this.state.playlistName, trackURIs);
         this.setState({
@@ -56,16 +55,6 @@ savePlaylist() {
             playlist: []
         });
     };
-
- //  savePlaylist() {
- //  	const trackURIs = this.state.playlistTracks.map(track => track.uri); 
- //  	Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
- //      this.setState({
-	// playlistName: this.state.playlistName,
-	// playlistTracks: this.state.playlistTracks
- //      });
- //    });
- //  };
   
   search(term) {
   	Spotify.search(term).then(searchResults => {
