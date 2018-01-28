@@ -8,9 +8,9 @@ const Spotify = {
 	getAccessToken() {
 		if(accessToken) {
 			return accessToken;
-		} else if (window.location.href.match('/access_token=([^&]*)/') && window.location.href.match('/expires_in=([^&]*)/')) {
-			 accessToken = window.location.href.match('/access_token=([^&]*)/')[1];
-			 expiresIn = window.location.href.match('/expires_in=([^&]*)/')[1];
+		} else if (window.location.href.match(/access_token=([^&]*)/) && window.location.href.match(/expires_in=([^&]*)/)) {
+			 accessToken = window.location.href.match(/access_token=([^&]*)/)[1];
+			 expiresIn = window.location.href.match(/expires_in=([^&]*)/)[1];
 
 			window.setTimeout(() => accessToken = '', expiresIn * 1000);
 			window.history.pushState('Access Token', null, '/');
@@ -51,12 +51,12 @@ const Spotify = {
            })
 		},
 
-		savePlaylist: (playlistName, trackURIs) => {
-    if (!playlistName || !trackURIs.length) {
-      return
-    }
-    
-    let headers = {Authorization: `Bearer ${accessToken}`}
+	savePlaylist: (playlistName, trackURIs) => {
+		if (!playlistName || !trackURIs.length) {
+			return
+		};
+    Spotify.getAccessToken();
+    let headers = {Authorization: `Bearer ${accessToken}`};
     let userId;
     let playlistID;
 
