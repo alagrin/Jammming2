@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = { 
         searchResults: [],
-        playlistName: "Enter name here",
+        playlistName: " ",
         playlistTracks: []
     };
 
@@ -19,6 +19,7 @@ class App extends React.Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+
   };
   
 

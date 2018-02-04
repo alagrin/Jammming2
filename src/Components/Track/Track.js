@@ -7,6 +7,7 @@ class Track extends React.Component {
 		this.renderAction = this.renderAction.bind(this);
 		this.handleAdd = this.handleAdd.bind(this);
 		this.onRemove = this.onRemove.bind(this);
+		this.handlePreview = this.handlePreview.bind(this);
 	}
 
 	handleAdd() {
@@ -15,6 +16,12 @@ class Track extends React.Component {
 
 	onRemove() {
 		this.props.onRemove(this.props.track);
+	}
+
+	handlePreview() {
+		const url = track.preview_url
+        const audio = new Audio(url);
+        audio.play(); // This will play the audio
 	}
 
 	renderAction() {
@@ -32,6 +39,7 @@ class Track extends React.Component {
             <div className="Track-information">
               <h3>{this.props.track.name}</h3>
                 <p>{this.props.track.artist} || {this.props.track.album} </p>
+                <button onClick={this.handlePreview}>Preview</button>
             </div>
               { this.renderAction() }
             </div>

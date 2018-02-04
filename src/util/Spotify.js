@@ -5,6 +5,19 @@ let expiresIn;
 
 const Spotify = {
 	
+	// getAccount() {
+	// 	let user_id;
+	// 	let accessToken = window.location.href.match(/access_token=([^&]*)/);
+	// 	accessToken = accessToken[1];
+	// 	return fetch('https://api.spotify.com/v1/users/{user_id}', {
+	// 			headers: { Authorization: `Bearer ${accessToken}` },
+	// 		    method: 'GET' 
+	// 		}).then(response => {
+    
+ //      return response.json();
+	// })
+	// 	},
+
 	getAccessToken() {
 		if(accessToken) {
 			return accessToken;
@@ -41,11 +54,12 @@ const Spotify = {
                 return [];
                }
                return json.tracks.items.map( track => ({
-			     id: track.id,
+			           id: track.id,
                  name: track.name,
                  artist: track.artists[0].name,
                  album: track.album.name,
-                 uri: track.uri 
+                 uri: track.uri,
+                 preview_url: track.preview_url
                })
 			 )
            })
