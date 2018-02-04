@@ -33,3 +33,12 @@
   font-weight: 200;
   color: rgba(256, 256, 256, 0.8);
 }
+
+.Track-information button {
+  width: 5rem;
+  align-self: center;
+}
+
+button {
+  
+}

@@ -4,6 +4,8 @@ import './Track.css';
 class Track extends React.Component {
 	constructor(props) {
 		super(props);
+		// this.state = {
+		// 	isPlaying:false}
 		this.renderAction = this.renderAction.bind(this);
 		this.handleAdd = this.handleAdd.bind(this);
 		this.onRemove = this.onRemove.bind(this);
@@ -19,9 +21,9 @@ class Track extends React.Component {
 	}
 
 	handlePreview() {
-		const url = track.preview_url
-        const audio = new Audio(url);
-        audio.play(); // This will play the audio
+		const url = this.props.track.preview_url
+		const audio = new Audio(url);
+		audio.play();
 	}
 
 	renderAction() {
@@ -37,9 +39,8 @@ class Track extends React.Component {
 		return (
 			<div className="Track">
             <div className="Track-information">
-              <h3>{this.props.track.name}</h3>
+              <h3>{this.props.track.name}</h3><button onClick={this.handlePreview}>Preview</button>
                 <p>{this.props.track.artist} || {this.props.track.album} </p>
-                <button onClick={this.handlePreview}>Preview</button>
             </div>
               { this.renderAction() }
             </div>
